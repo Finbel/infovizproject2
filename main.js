@@ -10,19 +10,16 @@ window.onload = function () {
     $(".pdf").hide();
 
     $("#learn-button").click(function(){
-        console.log("this");
         $(".pdf").hide();        
         $("#learning").show();    
     });
 
     $("#trail1-button").click(function(){
-        console.log("this");
         $(".pdf").hide();        
         $("#trail1").show();    
     });
 
     $("#trail2-button").click(function(){
-        console.log("this");
         $(".pdf").hide();        
         $("#trail2").show();    
     });
@@ -91,6 +88,52 @@ window.onload = function () {
       .on("mouseover", handleConflictMouseOver)
       .on("mouseout", handleConflictMouseOut)
       .on("click", handleConflictClick);
+      
+
+    topChart.g.append("circle")
+      .attr("cx",200)
+      .attr("cy",400)
+      .attr("r",100)
+      .attr("fill","gray")
+      .attr("opacity",0.6);
+      
+    topChart.g.append("circle")
+        .attr("cx",200)
+        .attr("cy",400)
+        .attr("r",25)
+        .attr("fill","red")
+        .attr("opacity",1);
+
+    topChart.g.append("line")
+        .attr("x1",200)
+        .attr("y1",400)
+        .attr("x2",350)
+        .attr("y2",400)
+        .attr("stroke-width","2")
+        .attr("stroke","black");
+
+    topChart.g.append("text")
+        .attr("x",352)
+        .attr("y",405)
+        .text("Casualties");
+
+    topChart.g.append("line")
+        .attr("x1",200+40)
+        .attr("y1",400+40)
+        .attr("x2",350+40)
+        .attr("y2",400+40)
+        .attr("stroke-width","2")
+        .attr("stroke","black");
+
+    topChart.g.append("text")
+        .attr("x",352+40)
+        .attr("y",405+40)
+        .text("Displaced");
+
+    topChart.g.append("text")
+        .attr("x",70)
+        .attr("y",530)
+        .text("Click on the red circle to select that conflict");
 
   /*
    * DONE WITH TOP CHART
@@ -365,6 +408,51 @@ window.onload = function () {
         .attr("class", "names")
         .attr("d", path);
 
+    svg.append("rect")
+        .attr("x",230)
+        .attr("y",390)
+        .attr("width",20)
+        .attr("height",20)
+        .attr("fill","#AE6451")
+        .attr("stroke","darkred")
+        .attr("stroke-width","1px");
+
+    svg.append("text")
+        .attr("x",252)
+        .attr("y",405)
+        .text("Participant in a conflict")
+
+    svg.append("rect")
+        .attr("x",230)
+        .attr("y",415)
+        .attr("width",20)
+        .attr("height",20)
+        .attr("fill","#D13C17")
+        .attr("stroke","darkred")
+        .attr("stroke-width","1px");
+
+    svg.append("text")
+        .attr("x",252)
+        .attr("y",430)
+        .text("Participant in selected conflict")
+
+    svg.append("rect")
+        .attr("x",230)
+        .attr("y",440)
+        .attr("width",20)
+        .attr("height",20)
+        .attr("fill","#800000")
+        .attr("stroke","black")
+        .attr("stroke-width","1px");
+
+    svg.append("text")
+        .attr("x",252)
+        .attr("y",455)
+        .text("Location of selected conflict")
+
+        //  "#800000";
+        //  "#D13C17";
+        //  "#AE6451";
 
     /*
      *

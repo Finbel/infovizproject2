@@ -116,6 +116,14 @@ var DataChart2 = function(container, data, current_conflict){
             Math.floor(d3.min(local_data, function(c) { 
                     return d3.min(c.values, function(d) { return d.value; }); })
         )]);
+        if(data.child){
+            y.domain([
+                Math.floor(d3.min(local_data, function(c) { 
+                        return d3.min(c.values, function(d) { return d.value; }); })
+            ),
+                Math.ceil(d3.max(local_data, function(c) { 
+                    return d3.max(c.values, function(d) { return d.value; }); }))]);
+        }
     }
 
     var z = d3.scaleOrdinal(d3.schemeCategory10).domain(local_data.map(function(c) { return c.id; }));
@@ -158,9 +166,18 @@ var DataChart2 = function(container, data, current_conflict){
         var scale = []
         var labels = []
         for(var i = 0; i < data.y_scale.values.length; i++){
-            if(data.y_scale.values[i] >= y.domain()[1] && data.y_scale.values[i] <= y.domain()[0]){
-                scale.push(data.y_scale.values[i]);
-                labels.push(data.y_scale.label[i]);
+            if(data.child){
+                if(data.y_scale.values[i] >= y.domain()[0] && data.y_scale.values[i] <= y.domain()[1]){
+                    scale.push(data.y_scale.values[i]);
+                    labels.push(data.y_scale.label[i]);
+                }
+                scale.reverse()
+                labels.reverse()
+            } else {
+                if(data.y_scale.values[i] >= y.domain()[1] && data.y_scale.values[i] <= y.domain()[0]){
+                    scale.push(data.y_scale.values[i]);
+                    labels.push(data.y_scale.label[i]);
+                }
             }
         }
         var axis = d3.axisLeft(y)
@@ -328,4 +345,11 @@ var DataChart2 = function(container, data, current_conflict){
                 }
             }
         });
+
+    if(data.y_reverse){
+        g.append("text")
+            .attr("x",10)
+            .attr("y",600)
+            .text("CLICK ON DOT TO GET MORE DETAILS");
+    }
 }
