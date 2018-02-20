@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+    <title>Project 2</title>
+</head>
+<body>
+    <svg class="top-chart" width="1500" height="950">
+        <image width="800" height="300" xlink:href="img.png"/>
+    </svg>
+    <svg class="world-map"></svg>
+    <div id= "war-name" class="war-name"></div>
+    <div class="btn-toolbar pagination-centered">
+        <div id = "buttons" class="btn-group" role="group" aria-label="Basic example">
+            <button id="aid" type="button" class="btn btn-primary">Aid Received</button>
+            <button id="arms" type="button" class="btn btn-primary">Arms Export</button>
+            <button id="birth" type="button" class="btn btn-primary">Birth Rate</button>
+            <button id="childmort" type="button" class="btn btn-primary">Child Mortality</button>
+            <button id="debt" type="button" class="btn btn-primary">Debt</button>
+            <button id="gdp" type="button" class="btn btn-primary">GDP</button>
+            <button id="age" type="button" class="btn btn-primary">Median Age</button>
+            <button id="cindep" type="button" class="btn btn-success">Child Independence</button>
+            <button id="family" type="button" class="btn btn-success">Family</button>
+            <button id="happiness" type="button" class="btn btn-success">Happiness</button>
+            <button id="health" type="button" class="btn btn-success">Health</button>
+            <button id="leasure" type="button" class="btn btn-success">Leasure Time</button>
+            <button id="politics" type="button" class="btn btn-success">Politics</button>
+            <button id="religion" type="button" class="btn btn-success">Religion</button>
+            <button id="work" type="button" class="btn btn-success">Work</button>
+        </div> 
+    </div>
+    <svg id = "chart" class="bottom-chart" width="1500" height="0"></svg>
+    <div class="land-name"></div>
+    <div id = "bottom-chart" class="chart"></div>
+    <div class="btn-toolbar pagination-centered">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button id="learn-button" type="button" class="btn btn-active">Read about my learning<br>100 words</button>
+            <button id="trail1-button" type="button" class="btn btn-active">Analytic Trail 1<br>200 words</button>
+            <button id="trail2-button" type="button" class="btn btn-active">Analytic Trail 2<br>200 words</button>
+        </div> 
+    </div>
+    <embed id="learning" class="pdf" src="learning.pdf"/>
+    <embed id="trail1" class="pdf" src="trail1.pdf"/>
+    <embed id="trail2" class="pdf" src="trail2.pdf"/>
+</body>
+
+<script src="./data/profit/boing_data.js"></script>
+<script src="./data/profit/lockheed_data.js"></script>
+<script src="./data/conflict/conflict_data.js"></script>
+
+<script src="./data/map/polygon_data.js"></script>
+<script src="./data/countries_data.js"></script>
+
+<script src="./data/gapminder/wbirth_rate.js"></script>
+<script src="./data/gapminder/warms_export_data.js"></script>
+<script src="./data/gapminder/waid_received_data.js"></script>
+<script src="./data/gapminder/wchild_mortality_data.js"></script>
+<script src="./data/gapminder/wdebt_data.js"></script>
+<script src="./data/gapminder/wGDP_data.js"></script>
+<script src="./data/gapminder/wmedian_age_data.js"></script>
+
+<script src="./data/WVS/c__independence.js"></script>
+<script src="./data/WVS/family.js"></script>
+<script src="./data/WVS/happiness.js"></script>
+<script src="./data/WVS/health.js"></script>
+<script src="./data/WVS/leasure_time.js"></script>
+<script src="./data/WVS/politics.js"></script>
+<script src="./data/WVS/religion.js"></script>
+<script src="./data/WVS/work.js"></script>
+
+<script src="./data/WVS/values_data2.js"></script>
+
+<script src="color_map.js"></script>
+
+<script src="dataChart.js"></script>
+<script src="dataChart2.js"></script>
+<script src="barChart.js"></script>
+
+<script src="main.js"></script>
+<script src="d3-tip.js"></script>
+</html>
